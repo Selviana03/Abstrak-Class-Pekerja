@@ -1,0 +1,52 @@
+// 1. Abstract Class Pekerja
+abstract class Pekerja {
+  String nama;
+  Pekerja(this.nama);
+
+  // Method abstract (wajib di-override)
+  void bekerja();
+
+  // Method non-abstract
+  void info() => print("$nama adalah seorang pekerja.");
+}
+
+// 2. Class Implementasi
+class Programmer extends Pekerja {
+  Programmer(String nama) : super(nama);
+  @override
+  void bekerja() => print("$nama sedang menulis kode.");
+}
+
+class Dokter extends Pekerja {
+  Dokter(String nama) : super(nama);
+  @override
+  void bekerja() => print("$nama sedang memeriksa pasien.");
+}
+
+class Guru extends Pekerja {
+  Guru(String nama) : super(nama);
+  @override
+  void bekerja() => print("$nama sedang mengajar.");
+}
+
+// 3. Demonstrasi Polimorfisme
+void main() {
+  List<Pekerja> daftarPekerja = [
+    Programmer("Andi"), 
+    Dokter("Budi"), 
+    Guru("Citra")
+  ];
+
+  for (var p in daftarPekerja) {
+    p.bekerja(); // Inilah Polimorfisme
+  }
+}
+class Komputer { void booting() => print("Komputer booting..."); }
+class Kamera { void ambilFoto() => print("Kamera memotret..."); }
+class Telepon { void panggil() => print("Telepon memanggil..."); }
+
+class Tablet implements Komputer, Kamera, Telepon {
+  @override void booting() => print("Tablet booting...");
+  @override void ambilFoto() => print("Tablet memotret...");
+  @override void panggil() => print("Tablet menelepon...");
+}
