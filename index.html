@@ -1,52 +1,62 @@
-// 1. Abstract Class Pekerja
-abstract class Pekerja {
-  String nama;
-  Pekerja(this.nama);
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Tugas OOP</title>
+    <style>
+        /* Mengatur font agar terlihat bersih seperti contoh */
+        body { 
+            font-family: 'Segoe UI', sans-serif; 
+            background-color: #fff0f5; /* Warna latar pink lembut */
+            padding: 20px; 
+            display: flex;
+            justify-content: center;
+        }
 
-  // Method abstract (wajib di-override)
-  void bekerja();
+        /* Container utama seperti bentuk Card di contoh */
+        .container { 
+            max-width: 600px; 
+            background: white; 
+            padding: 30px; 
+            border-radius: 20px; 
+            border: 2px solid #ffb6c1; /* Garis tepi pink */
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+        }
 
-  // Method non-abstract
-  void info() => print("$nama adalah seorang pekerja.");
-}
+        h1 { color: #800000; text-align: center; font-size: 24px; }
 
-// 2. Class Implementasi
-class Programmer extends Pekerja {
-  Programmer(String nama) : super(nama);
-  @override
-  void bekerja() => print("$nama sedang menulis kode.");
-}
+        /* Box identitas marun/pink */
+        .identitas { 
+            background: #ffe4e1; 
+            padding: 15px; 
+            border-radius: 10px; 
+            margin: 20px 0; 
+            color: #500;
+        }
 
-class Dokter extends Pekerja {
-  Dokter(String nama) : super(nama);
-  @override
-  void bekerja() => print("$nama sedang memeriksa pasien.");
-}
+        /* Garis samping untuk judul */
+        h2 { 
+            color: #800000; 
+            border-left: 5px solid #ffb6c1; 
+            padding-left: 10px; 
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
 
-class Guru extends Pekerja {
-  Guru(String nama) : super(nama);
-  @override
-  void bekerja() => print("$nama sedang mengajar.");
-}
+<div class="container">
+    <h1>Tugas Pemrograman Berorientasi Objek (OOP)</h1>
+    
+    <div class="identitas">
+        <strong>Nama Lengkap:</strong> Serlin Selviana Giay<br>
+        <strong>NIM:</strong> 251410030<br>
+        <strong>Tugas:</strong> Kuis & Diskusi Pertemuan 1
+    </div>
 
-// 3. Demonstrasi Polimorfisme
-void main() {
-  List<Pekerja> daftarPekerja = [
-    Programmer("Andi"), 
-    Dokter("Budi"), 
-    Guru("Citra")
-  ];
+    <h2>1. Perbedaan Utama Antara Kelas dan Objek</h2>
+    <p>Kelas (Class) adalah "blueprint" atau cetakan dasar yang mendefinisikan atribut (data) dan perilaku (metode)...</p>
+</div>
 
-  for (var p in daftarPekerja) {
-    p.bekerja(); // Inilah Polimorfisme
-  }
-}
-class Komputer { void booting() => print("Komputer booting..."); }
-class Kamera { void ambilFoto() => print("Kamera memotret..."); }
-class Telepon { void panggil() => print("Telepon memanggil..."); }
-
-class Tablet implements Komputer, Kamera, Telepon {
-  @override void booting() => print("Tablet booting...");
-  @override void ambilFoto() => print("Tablet memotret...");
-  @override void panggil() => print("Tablet menelepon...");
-}
+</body>
+</html>
